@@ -1,3 +1,7 @@
+## MongoDB Replica Set Demo
+
+Connects to a MongoDB replica set cluster through MongoDB .NET client.
+
 ```
 docker network create my-mongo-cluster
 docker run --name mongo-node1 -d -p 5051:27017 --net my-mongo-cluster mongo mongod --replSet "rs0"
