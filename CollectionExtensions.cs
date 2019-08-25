@@ -13,6 +13,7 @@ namespace mongodb_replica_set
             var retryPolicy = Policy
                 .Handle<MongoCommandException>()
                 .Or<MongoConnectionException>()
+                .Or<MongoNotPrimaryException>()
                 .WaitAndRetry(2, retryAttempt => 
                     TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)) 
                 );
